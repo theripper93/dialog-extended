@@ -1,0 +1,46 @@
+<form>
+    <p>{{content}}</p>
+    <hr>
+    {{#each inputs}}
+    <div class="form-group">
+        <label for="{{@key}}">{{this.label}}</label>
+        <div class="form-fields">
+
+            {{#if (eq this.type "text")}}
+            <input name="{{@key}}" type="{{this.type}}" value="{{this.default}}" placeholder="{{this.placeholder}}">
+            {{/if}}
+
+            {{#if (eq this.type "number")}}
+            <input name="{{@key}}" type="{{this.type}}" min="{{this.min}}" max="{{this.max}}" step="{{this.step}}"
+                value="{{this.default}}" placeholder="{{this.placeholder}}">
+            {{/if}}
+
+            {{#if (eq this.type "select")}}
+            <select name="{{@key}}">
+                {{selectOptions this.options selected=this.default localize=true}}
+            </select>
+            {{/if}}
+
+            {{#if (eq this.type "checkbox")}}
+            <input type="checkbox" name="{{@key}}" {{checked this.default}}>
+            {{/if}}
+
+            {{#if (eq this.type "color")}}
+            {{colorPicker name=@key value=this.default default=this.default}}
+            {{/if}}
+
+            {{#if (eq this.type "filePicker")}}
+            <input name="{{@key}}" type="text" value="{{this.default}}" placeholder="{{this.placeholder}}">
+            {{filePicker type=this.filePicker target=@key}}
+            {{/if}}
+
+            {{#if (eq this.type "range")}}
+            {{rangePicker name=@key value=this.default min=this.min max=this.max step=this.step}}
+            {{/if}}
+
+        </div>
+    </div>
+
+    {{/each}}
+    <hr>
+</form>
