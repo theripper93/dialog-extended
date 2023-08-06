@@ -1,6 +1,11 @@
 # Dialog Extended
 Extends the Dialog class with a Dialog.input() method
 
+### Installation
+Install via manifest URL
+```copy
+https://github.com/theripper93/dialog-extended/releases/download/1.0/module.json
+```
 ### Example Usage
 
 ```js
