@@ -12,6 +12,8 @@ https://github.com/theripper93/dialog-extended/releases/latest/download/module.j
     const dialogData = await Dialog.input({
         title: "Test",
         content: "This is a test input dialog, pick something",
+        label: "",
+        icon: '<i class="fas fa-check"></i>',
         inputs: {
             myText: {
                 type: "text",
@@ -69,7 +71,7 @@ https://github.com/theripper93/dialog-extended/releases/latest/download/module.j
 
 ### Output
 
-If the user presses "Yes" the value of `dialogData` will be:
+If the user presses the confirmation button the value of `dialogData` will be:
 
 ```json
 {
@@ -82,7 +84,5 @@ If the user presses "Yes" the value of `dialogData` will be:
     "myRange": 50
 }
 ```
-
-If the user presses "No" the value of `dialogData` will be `false`
 
 If the user closes the dialog, the value of `dialogData` will be `null`

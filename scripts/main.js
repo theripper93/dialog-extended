@@ -9,24 +9,19 @@ Hooks.on("init", () => {
     Dialog.input = inputDialog;
 });
 
-async function inputDialog({title, content, inputs, render, defaultYes = true, options = {}} = {}) {
+async function inputDialog({title, content, inputs, icon, label, render, options = {}} = {}) {
     const inputDialogContent = await getHtml(content, inputs);
     return new Promise((resolve, reject) => {
         new Dialog({
             title,
             content: inputDialogContent,
             focus: true,
-            default: defaultYes ? "yes" : "no",
+            default: "confirm",
             buttons: {
-                yes: {
-                  icon: '<i class="fas fa-check"></i>',
-                  label: game.i18n.localize("Yes"),
+                confirm: {
+                  icon: icon ?? '<i class="fas fa-check"></i>',
+                  label: label ?? "",
                   callback: html => resolve(getData(html))
-                },
-                no: {
-                  icon: '<i class="fas fa-times"></i>',
-                  label: game.i18n.localize("No"),
-                  callback: () => resolve(false)
                 }
             },
             render: (html) => {
