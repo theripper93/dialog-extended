@@ -68,7 +68,7 @@ https://github.com/theripper93/dialog-extended/releases/latest/download/module.j
 
 ### Resulting Dialog
 
-![image](https://github.com/theripper93/dialog-extended/assets/1346839/bebc8521-bad8-475b-a672-83cbd1edfcca)
+![image](https://github.com/theripper93/dialog-extended/assets/1346839/063635fa-09e6-4f25-9ff4-c44059371f0e)
 
 ### Output
 
