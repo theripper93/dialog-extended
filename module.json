@@ -1,6 +1,6 @@
 {
     "title": "Dialog Extended",
-    "description": "desc",
+    "description": "Extends the Dialog class with a Dialog.input() method",
     "id": "dialog-extended",
     "version": "1.0",
     "authors": [
