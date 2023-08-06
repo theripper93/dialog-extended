@@ -14,6 +14,7 @@ https://github.com/theripper93/dialog-extended/releases/latest/download/module.j
         content: "This is a test input dialog, pick something",
         label: "",
         icon: '<i class="fas fa-check"></i>',
+        cancelButton: false,
         inputs: {
             myText: {
                 type: "text",
@@ -86,3 +87,5 @@ If the user presses the confirmation button the value of `dialogData` will be:
 ```
 
 If the user closes the dialog, the value of `dialogData` will be `null`
+
+If the cancel button is pressed, the value of `dialogData` will be `false`

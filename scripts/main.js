@@ -9,21 +9,29 @@ Hooks.on("init", () => {
     Dialog.input = inputDialog;
 });
 
-async function inputDialog({title, content, inputs, icon, label, render, options = {}} = {}) {
+async function inputDialog({title, content, inputs, icon, label, cancelButton, render, options = {}} = {}) {
     const inputDialogContent = await getHtml(content, inputs);
     return new Promise((resolve, reject) => {
+        const buttons = {
+            confirm: {
+              icon: icon ?? '<i class="fas fa-check"></i>',
+              label: label ?? "",
+              callback: html => resolve(getData(html))
+            }
+        };
+        if (cancelButton) {
+            buttons.cancel = {
+                icon: '<i class="fas fa-times"></i>',
+                label: game.i18n.localize("Cancel"),
+                callback: () => resolve(false)
+            };
+        }
         new Dialog({
             title,
             content: inputDialogContent,
             focus: true,
             default: "confirm",
-            buttons: {
-                confirm: {
-                  icon: icon ?? '<i class="fas fa-check"></i>',
-                  label: label ?? "",
-                  callback: html => resolve(getData(html))
-                }
-            },
+            buttons, 
             render: (html) => {
                 const el = html[0];
                 el.querySelectorAll('input[type="color"]').forEach((input) => {
